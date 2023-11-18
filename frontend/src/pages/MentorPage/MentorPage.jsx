@@ -24,7 +24,7 @@ const MentorPage = ({ currentAccount }) => {
   const web3 = new Web3(window.ethereum);
   const contract = new web3.eth.Contract(
     myDMentorAbi,
-    "0x3B0A799CB14b3eEE0e01F32E60cf3575d8345CB6"
+    "0x7d9EdC965Aba61A4Ceadb224eA1adA351fAF8380"
   );
   const stakeClientAmount = async (value) => {
     console.log(value);

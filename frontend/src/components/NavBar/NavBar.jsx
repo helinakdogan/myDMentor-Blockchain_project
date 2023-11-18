@@ -23,7 +23,7 @@ const NavBar = ({ currentAccount, connectWalletHandler }) => {
             <Link to="/mentee">
               <a href="#">My Mentees</a>
             </Link>
-            <Link to="/clients">
+            <Link to="/mentor">
               <a href="#">Mentors</a>
             </Link>
           </div>
