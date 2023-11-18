@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Web3 from "web3";
-import myDMentorAbi from "../../abi/myDMentorAbi.json";
+
 import "./mentorPage.css";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+
 import {
   Button,
   TextField,
@@ -15,13 +15,8 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
 } from "@mui/material";
-import { SpaceBar } from "@mui/icons-material";
-import { Input } from "@mui/material";
+
 
 const MentorPage = ({ currentAccount }) => {
   const [gigVisible, setGigVisible] = useState("");
@@ -82,25 +77,48 @@ const MentorPage = ({ currentAccount }) => {
             style={{ width: "300px", height: "10px" }}
           />
           <div style={{ margin: "70px" }}></div>
-          <div className="progress-container">
-            <Card style={{ width: 500 }}>
+          <div className="progress-container" style={{ display: "flex" }}>
+            <Card
+              style={{
+                width: 300,
+                marginRight: "10px",
+                backgroundColor: "#4e3188",
+              }}
+            >
+              <div style={{ height: "50%", overflow: "hidden" }}>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/800px-Juvenile_Ragdoll.jpg"
+                  alt="Mentor"
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+
               <div>
                 <CardHeader
-                  avatar={<AccountCircleIcon />}
-                  title="Mentor X"
+                  title="Mentor Y"
+                  style={{ color: "white" }}
                 ></CardHeader>
               </div>
               <CardContent>
                 <Typography
                   variant="body1"
                   className="progress-card-description"
+                  style={{ color: "white" }}
                 >
-                  My expertise in...
+                  Description
                 </Typography>
-                <Typography variant="body2">Video support: yes</Typography>
-                <Typography variant="body2">Video duration: 30min</Typography>
-                <Typography variant="body2">Number of mentees: 12</Typography>
-                <Button variant="contained" onClick={handleDialogOpen}>
+                <Typography variant="body2" style={{ color: "white" }}>
+                  Number of mentees: 12
+                </Typography>
+                <Button
+                  variant="contained"
+                  onClick={handleDialogOpen}
+                  style={{
+                    marginLeft: "100px",
+                    marginTop: "10px",
+                    backgroundColor: "#49beb7",
+                  }}
+                >
                   View
                 </Button>
               </CardContent>
@@ -108,64 +126,161 @@ const MentorPage = ({ currentAccount }) => {
 
             <div style={{ margin: "10px" }}></div>
 
-            <Card style={{ width: 500 }}>
+            <Card
+              style={{
+                width: 300,
+                marginRight: "10px",
+                backgroundColor: "#4e3188",
+              }}
+            >
+              <div style={{ height: "50%", overflow: "hidden" }}>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/800px-Juvenile_Ragdoll.jpg"
+                  alt="Mentor"
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+
               <div>
                 <CardHeader
-                  avatar={<AccountCircleIcon />}
                   title="Mentor Y"
+                  style={{ color: "white" }}
                 ></CardHeader>
               </div>
               <CardContent>
                 <Typography
                   variant="body1"
                   className="progress-card-description"
+                  style={{ color: "white" }}
                 >
-                  My expertise in...
+                  Description
                 </Typography>
-                <Typography variant="body2">Video support: yes</Typography>
-                <Typography variant="body2">Video duration: 30min</Typography>
-                <Typography variant="body2">Number of mentees: 12</Typography>
-                <Button variant="contained" onClick={handleDialogOpen}>
+                <Typography variant="body2" style={{ color: "white" }}>
+                  Number of mentees: 12
+                </Typography>
+                <Button
+                  variant="contained"
+                  onClick={handleDialogOpen}
+                  style={{
+                    marginLeft: "100px",
+                    marginTop: "10px",
+                    backgroundColor: "#49beb7",
+                  }}
+                >
                   View
                 </Button>
               </CardContent>
             </Card>
 
+            <div style={{ margin: "10px" }}></div>
+            <Card
+              style={{
+                width: 300,
+                marginRight: "10px",
+                backgroundColor: "#4e3188",
+              }}
+            >
+              <div style={{ height: "50%", overflow: "hidden" }}>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/800px-Juvenile_Ragdoll.jpg"
+                  alt="Mentor"
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+
+              <div>
+                <CardHeader
+                  title="Mentor Y"
+                  style={{ color: "white" }}
+                ></CardHeader>
+              </div>
+              <CardContent>
+                <Typography
+                  variant="body1"
+                  className="progress-card-description"
+                  style={{ color: "white" }}
+                >
+                  Description
+                </Typography>
+                <Typography variant="body2" style={{ color: "white" }}>
+                  Number of mentees: 12
+                </Typography>
+                <Button
+                  variant="contained"
+                  onClick={handleDialogOpen}
+                  style={{
+                    marginLeft: "100px",
+                    marginTop: "10px",
+                    backgroundColor: "#49beb7",
+                  }}
+                >
+                  View
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
-        
+
+        {gigVisible && (
+          <div className="gig-container">
+            <TextField type="text" placeholder="Title" />
+            <TextField type="text" placeholder="Description" />
+            <TextField
+              type="number"
+              placeholder="Price"
+              onChange={(e) => setPrice(e.target.value)}
+            />
+            <Button
+              type="submit"
+              className="gig"
+              style={{ float: "right" }}
+              onClick={() => stakeClientAmount(price)}
+            >
+              Submit
+            </Button>
+          </div>
+        )}
       </Container>
 
       <Dialog open={openDialog} onClose={handleDialogClose}>
-        <DialogTitle>Mentor Details</DialogTitle>
-        <DialogContent>
-          <Typography variant="body1">
-            Welcome to Mentor X's profile! I am a passionate mentor with expertise in various
-            fields. Let me help you achieve your goals and overcome challenges.
-          </Typography>
+  <DialogTitle>Mentor Details</DialogTitle>
+  <DialogContent>
+    
 
-          <Typography variant="h6" style={{ marginTop: 20 }}>
-            Appointment Options:
-          </Typography>
+  <div style={{ height: '20%', overflow: 'hidden' }}>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/800px-Juvenile_Ragdoll.jpg"
+        alt="Mentor"
+        style={{ width: '100%', height: 'auto' }}
+      />
+    </div>
 
-          {/* Add appointment options */}
-          <Button variant="outlined" style={{ marginRight: 10 }}>
-            Uploaded Video
-          </Button>
-          <Button variant="outlined" style={{ marginRight: 10 }}>
-            Written Feedback
-          </Button>
-          
-        </DialogContent>
-        <DialogActions>
-          <Button>Approve</Button>
-          <Button onClick={handleDialogClose} color="primary">
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
+    <Typography variant="body1">
+      Welcome to Mentor X's profile! I am a passionate mentor with expertise
+      in various fields. Let me help you achieve your goals and overcome
+      challenges.
+    </Typography>
 
-      
+    <Typography variant="h6" style={{ marginTop: 20 }}>
+      Appointment Options:
+    </Typography>
+
+    {/* Add appointment options */}
+    <Button variant="outlined" style={{ marginRight: 10 }}>
+      Uploaded Video
+    </Button>
+    <Button variant="outlined" style={{ marginRight: 10 }}>
+      Written Feedback
+    </Button>
+  </DialogContent>
+  <DialogActions>
+    <Button>Approve</Button>
+    <Button onClick={handleDialogClose} color="primary">
+      Close
+    </Button>
+  </DialogActions>
+</Dialog>
+
     </div>
   );
 };
