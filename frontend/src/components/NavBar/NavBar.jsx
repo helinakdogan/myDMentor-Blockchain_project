@@ -41,7 +41,8 @@ const NavBar = ({ currentAccount, connectWalletHandler }) => {
               <Button
                 className="connect-wallet-button"
                 onClick={connectWalletHandler}
-                style={{ background: "#4e3188", color: "white" }}
+                
+                style={{ backgroundImage: "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)", color: "white" }}
               >
                 Connect Wallet
               </Button>

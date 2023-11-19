@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar/NavBar";
 import React, { useState, useEffect } from "react";
 import MentorPage from "./pages/MentorPage/MentorPage";
 import MenteePage from "./pages/MenteePage/MenteePage";
+import MentorProfile from "./pages/MentorProfile/MentorProfile";
 
 
 function App() {
@@ -62,12 +63,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/mentee" element={<MenteePage />}></Route>
-    
+        <Route path="/mentor/mentorProfile" element={<MentorProfile />}></Route>
         <Route
           path="/mentor"
           element={<MentorPage currentAccount={currentAccount} />}
         ></Route>
-        {/* <Route path='collect' element={<Collect />} /> */}
+        
       </Routes>
     </Router>
   );

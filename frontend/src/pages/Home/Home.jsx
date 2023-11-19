@@ -10,29 +10,39 @@ const Home = () => {
   useEffect(() => {
     console.log(address);
   }, [address]);
-  console.log(address);
+
   const { connect } = useConnect({
     connector: new InjectedConnector(),
   });
+
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
       <div
         style={{
+          width: "70%", // Adjust the width as needed
+          margin: "0 auto", // Center the container horizontally
           display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: "20px",
+          gridTemplateColumns: "1fr 1fr",
         }}
       >
+        {/* First Half: Text */}
         <div
           style={{
-            gridColumn: "1 / span 3",
+            gridColumn: "1",
             fontSize: "20px",
-            color: "purple",
+            color: "pink", // Change text color to pink
             padding: "40px",
             fontFamily: "Arial, sans-serif",
           }}
         >
-          <p style={{ fontStyle: "italic", lineHeight: "1.5", color: "black" }}>
+          <p style={{ fontStyle: "italic", lineHeight: "1.5", color: "#385170" }}>
             myDMentor leverages blockchain technology to ensure secure,
             efficient and transparent payment processes, addressing one of the
             most significant pain points in the mentor and mentee payment
@@ -40,25 +50,23 @@ const Home = () => {
           </p>
         </div>
 
-       
-
-        {/* Second Section: Image */}
-        <div style={{ gridColumn: "3" }}>
+        {/* Second Half: Image */}
+        <div style={{ gridColumn: "2" }}>
           <img
-            src="https://cdn-icons-png.flaticon.com/512/9750/9750907.png"
+            src="https://img.imgyukle.com/2023/11/19/yuJo4U.png"
             alt="Image 2"
-            style={{ width: "100%" }}
+            style={{ width: "100%", maxWidth: "300px" }}
           />
         </div>
       </div>
 
       <Chat
-        account={address} //user address
-        supportAddress="" //support address
-        apiKey="" //todo
+        account={address}
+        supportAddress=""
+        apiKey=""
         env="staging"
       />
-    </>
+    </div>
   );
 };
 

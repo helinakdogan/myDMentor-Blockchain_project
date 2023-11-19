@@ -16,11 +16,13 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 
 const MentorPage = ({ currentAccount }) => {
   const [gigVisible, setGigVisible] = useState("");
   const [price, setPrice] = useState(0);
+  const navigate = useNavigate();
   const web3 = new Web3(window.ethereum);
   const contract = new web3.eth.Contract(
     myDMentorAbi,
@@ -82,7 +84,7 @@ const MentorPage = ({ currentAccount }) => {
               style={{
                 width: 300,
                 marginRight: "10px",
-                backgroundColor: "#4e3188",
+                backgroundImage: "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)",
                 borderRadius: "25px",
               }}
             >
@@ -96,7 +98,7 @@ const MentorPage = ({ currentAccount }) => {
 
               <div>
                 <CardHeader
-                  title="Mentor X"
+                  title="Mert Altunakar"
                   style={{ color: "white" }}
                 ></CardHeader>
               </div>
@@ -106,11 +108,10 @@ const MentorPage = ({ currentAccount }) => {
                   className="progress-card-description"
                   style={{ color: "white" }}
                 >
-                  Description
+                  Professional Crypto Trader
                 </Typography>
-                <Typography variant="body2" style={{ color: "white" }}>
-                  Number of mentees: 12
-                </Typography>
+                <div style={{ margin: "30px" }}></div>
+                
                 <Button
                   variant="contained"
                   onClick={handleDialogOpen}
@@ -131,7 +132,7 @@ const MentorPage = ({ currentAccount }) => {
               style={{
                 width: 300,
                 marginRight: "10px",
-                backgroundColor: "#4e3188",
+                backgroundImage: "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)",
                 borderRadius: "25px",
               }}
             >
@@ -155,11 +156,9 @@ const MentorPage = ({ currentAccount }) => {
                   className="progress-card-description"
                   style={{ color: "white" }}
                 >
-                  Description
+                  Professional NFT Trader
                 </Typography>
-                <Typography variant="body2" style={{ color: "white" }}>
-                  Number of mentees: 12
-                </Typography>
+                <div style={{ margin: "30px" }}></div>
                 <Button
                   variant="contained"
                   onClick={handleDialogOpen}
@@ -179,7 +178,7 @@ const MentorPage = ({ currentAccount }) => {
               style={{
                 width: 300,
                 marginRight: "10px",
-                backgroundColor: "#4e3188",
+                backgroundImage: "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)",
                 borderRadius: "25px",
               }}
             >
@@ -203,11 +202,9 @@ const MentorPage = ({ currentAccount }) => {
                   className="progress-card-description"
                   style={{ color: "white" }}
                 >
-                  Description
+                  Graphic Designer
                 </Typography>
-                <Typography variant="body2" style={{ color: "white" }}>
-                  Number of mentees: 12
-                </Typography>
+                <div style={{ margin: "30px" }}></div>
                 <Button
                   variant="contained"
                   onClick={handleDialogOpen}
@@ -228,7 +225,7 @@ const MentorPage = ({ currentAccount }) => {
       </Container>
 
       <Dialog open={openDialog} onClose={handleDialogClose}>
-  <DialogTitle>Mentor X</DialogTitle>
+  <DialogTitle>Mert Altunakar</DialogTitle>
   <DialogContent>
     
 
@@ -240,6 +237,8 @@ const MentorPage = ({ currentAccount }) => {
       />
     </div>
 
+    <div style={{ margin: "10px" }}></div>
+
     <Typography variant="body1">
       Welcome to Mentor X's profile! I am a passionate mentor with expertise
       in various fields. Let me help you achieve your goals and overcome
@@ -247,24 +246,44 @@ const MentorPage = ({ currentAccount }) => {
     </Typography>
 
     <Typography variant="h6" style={{ marginTop: 20 }}>
-      Appointment Options:
+      Options:
     </Typography>
 
     {/* Add appointment options */}
-    <Button variant="outlined" style={{ width: '100%', marginRight: 10 }}>
-      Video Technical Analysis (x Eth)
-    </Button>
-    <div style={{ margin: "2px" }}></div>
-    <Button variant="outlined" style={{ width: '100%', marginRight: 10 }}>
-      Written Feedback
-    </Button>
+    <Button
+        variant="outlined"
+        style={{
+          width: "100%",
+          marginRight: 10,
+          backgroundImage: "linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%)",
+          color: "white"
+        }}
+      >
+        Video Technical Analysis (0.015 ETH)
+
+      </Button>
+      <div style={{ margin: "3px" }}></div>
+      <Button
+        variant="outlined"
+        style={{
+          width: "100%",
+          marginRight: 10,
+          backgroundImage: "linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%)",
+          color: "white"
+        }}
+      >
+        
+        Written Technical Analysis (0.01 ETH)
+      </Button>
   </DialogContent>
   <DialogActions>
-    <Button>Approve</Button>
-    <Button onClick={handleDialogClose} color="primary">
-      Close
-    </Button>
-  </DialogActions>
+        <Button onClick={() => { approve(); navigate("/mentor/mentorProfile"); }}>
+          Go to Profile
+        </Button>
+        <Button onClick={handleDialogClose} color="primary">
+          Close
+        </Button>
+      </DialogActions>
 </Dialog>
 
     </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 
 const MenteePage = () => {
-  const menteeNames = ['Mentee1', 'Mentee2', 'Mentee3', 'Mentee4', 'Mentee5'];
-  const appointmentTypes = ['TypeA', 'TypeB', 'TypeC', 'TypeD', 'TypeE'];
-  const appointmentDates = ['2023-11-19', '2023-11-20', '2023-11-21', '2023-11-22', '2023-11-23'];
+  const menteeNames = ['Mentee X', 'Mentee Y', 'Mentee Z'];
+  const appointmentTypes = ['Written Technical Analysis', 'Video Technical Analysis', 'Written Technical Analysis'];
+  const appointmentDates = ['2023-11-19', '2023-11-20', '2023-11-21'];
 
   const tableStyle = {
     borderCollapse: 'collapse',
@@ -34,13 +34,14 @@ const MenteePage = () => {
 
   return (
     <div style={containerStyle}>
-      <h1 style={{ textAlign: 'center' }}>MenteePage</h1>
+      <h1 style={{ textAlign: 'center', fontSize:"26px" }}>MenteePage</h1>
+      <div style={{ margin: "10px" }}></div>
       <table style={tableStyle}>
         <thead>
           <tr>
             <th style={thStyle}>Name</th>
             <th style={thStyle}>Appointment Type</th>
-            <th style={thStyle}>Date</th>
+            <th style={thStyle}>Deadline</th>
           </tr>
         </thead>
         <tbody>
