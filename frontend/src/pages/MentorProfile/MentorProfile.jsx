@@ -25,7 +25,7 @@ const MentorProfile = () => {
       // Call sendToPool function
       const txHash = await contract.methods.sendToPool(acc[0]).send({
         from: acc[0],
-        value: web3.utils.toWei('0.015', 'ether'), // Replace with the desired value in ether
+        value: web3.utils.toWei('0.00000015', 'ether'), // Replace with the desired value in ether
       });
 
       console.log(txHash);
