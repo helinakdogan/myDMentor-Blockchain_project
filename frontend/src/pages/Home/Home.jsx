@@ -1,19 +1,7 @@
-import { WorldIDWidget } from "@worldcoin/id";
-import { useAccount, useConnect } from "wagmi";
-import { Chat } from "@pushprotocol/uiweb";
-import { InjectedConnector } from "wagmi/connectors/injected";
-import { useEffect } from "react";
+import React from "react";
 
 const Home = () => {
-  const { address } = useAccount();
-
-  useEffect(() => {
-    console.log(address);
-  }, [address]);
-
-  const { connect } = useConnect({
-    connector: new InjectedConnector(),
-  });
+  
 
   const containerStyle = {
     display: "grid",
@@ -35,11 +23,7 @@ const Home = () => {
     height: "auto", // Maintain the aspect ratio
   };
 
-  const chatStyle = {
-    ...itemStyle,
-    gridRow: "span 2",
-    gridColumn: "span 2",
-  };
+ 
 
   return (
     <div style={containerStyle}>
@@ -54,9 +38,7 @@ const Home = () => {
       <div style={{ ...itemStyle, gridRow: 2, gridColumn: "span 2", marginTop:'130px', padding:'50px' }}>
         <img src="https://img.imgyukle.com/2023/11/19/yuJVhA.jpeg " style={imgStyle} />
       </div>
-      <div style={chatStyle}>
-        <Chat account={address} supportAddress="" apiKey="" env="staging" />
-      </div>
+      
     </div>
   );
 };
