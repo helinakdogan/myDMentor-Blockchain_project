@@ -12,16 +12,17 @@ const MenteePage = () => {
   };
 
   const thStyle = {
-    backgroundColor: '#f2f2f2',
     padding: '12px 15px',
     textAlign: 'left',
     borderBottom: '1px solid #ddd',
+    color: 'white',
   };
 
   const tdStyle = {
     padding: '10px 15px',
     textAlign: 'left',
     borderBottom: '1px solid #ddd',
+    color: 'white',
   };
 
   const containerStyle = {
@@ -30,31 +31,36 @@ const MenteePage = () => {
     borderRadius: '8px',
     maxWidth: '600px',
     margin: '0 auto',
+    background: 'linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)',
+    color: 'white',
   };
 
-  return (
-    <div style={containerStyle}>
-      <h1 style={{ textAlign: 'center', fontSize:"26px" }}>MenteePage</h1>
-      <div style={{ margin: "10px" }}></div>
-      <table style={tableStyle}>
-        <thead>
-          <tr>
-            <th style={thStyle}>Name</th>
-            <th style={thStyle}>Appointment Type</th>
-            <th style={thStyle}>Deadline</th>
-          </tr>
-        </thead>
-        <tbody>
-          {menteeNames.map((name, index) => (
-            <tr key={index}>
-              <td style={tdStyle}>{name}</td>
-              <td style={tdStyle}>{appointmentTypes[index]}</td>
-              <td style={tdStyle}>{appointmentDates[index]}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+  return ( <><div style={{ margin: "30px" }}></div><div style={containerStyle}>
+      
+  <h1 style={{ textAlign: 'center', fontSize: '26px' }}>MenteePage</h1>
+  <div style={{ margin: '10px' }}></div>
+  <table style={tableStyle}>
+    <thead>
+      <tr>
+        <th style={thStyle}>Name</th>
+        <th style={thStyle}>Appointment Type</th>
+        <th style={thStyle}>Deadline</th>
+      </tr>
+    </thead>
+    <tbody>
+      {menteeNames.map((name, index) => (
+        <tr key={index}>
+          <td style={tdStyle}>{name}</td>
+          <td style={tdStyle}>{appointmentTypes[index]}</td>
+          <td style={tdStyle}>{appointmentDates[index]}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  
+</div></>
+    
   );
 };
 

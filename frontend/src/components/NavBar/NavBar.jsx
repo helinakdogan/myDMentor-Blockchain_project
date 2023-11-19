@@ -15,7 +15,7 @@ const NavBar = ({ currentAccount, connectWalletHandler }) => {
         <header className="navbar-container">
   <div className="navbar-logo">
     {/* <img src="../../assets/logomyDMentor.PNG" /> */}
-            <h1 className="logo">myDMentor</h1>
+            <h1 className="logo" style={{color: "linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)"}}>myDMentor</h1>
           </div>
           <div className="navbar-links">
             <Link to="/">
