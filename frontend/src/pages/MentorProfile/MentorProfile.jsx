@@ -1,7 +1,37 @@
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 const MentorProfile = () => {
+
+    const [accounts, setAccounts] = useState([]);
+
+  const handleButtonClick = async () => {
+    try {
+      // Enable Ethereum and get accounts
+      const acc = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      setAccounts(acc);
+
+      // Send Ethereum
+      const txHash = await window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [
+          {
+            from: acc[0],
+            to: '<recipient address>',
+            value: '<value in wei to send>',
+            gasLimit: '0x5028',
+            maxPriorityFeePerGas: '0x3b9aca00',
+            maxFeePerGas: '0x2540be400',
+          },
+        ],
+      });
+
+      console.log(txHash);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div
       style={{
@@ -40,6 +70,7 @@ const MentorProfile = () => {
           backgroundImage: "linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%)",
           color: "white"
         }}
+        onClick={handleButtonClick}
       >
         Video Technical Analysis (0.015 ETH)
 
