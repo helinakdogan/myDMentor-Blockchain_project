@@ -1,29 +1,31 @@
-import { Button } from "@mui/material";
+import { Button, rgbToHex } from "@mui/material";
 import React, { useState } from "react";
+import myDMentorAbi from "../../abi/myDMentorAbi.json";
+import Web3 from "web3"; // Import Web3 library
 
 const MentorProfile = () => {
-
-    const [accounts, setAccounts] = useState([]);
-
+  const [accounts, setAccounts] = useState([]);
+  
   const handleButtonClick = async () => {
     try {
       // Enable Ethereum and get accounts
       const acc = await window.ethereum.request({ method: 'eth_requestAccounts' });
       setAccounts(acc);
 
-      // Send Ethereum
-      const txHash = await window.ethereum.request({
-        method: 'eth_sendTransaction',
-        params: [
-          {
-            from: acc[0],
-            to: '0x1E42a61f416A6aa14a20Efd32E454788021f8A10',
-            value: '15000000000000000',
-            gasLimit: '0x5028',
-            maxPriorityFeePerGas: '0x3b9aca00',
-            maxFeePerGas: '0x2540be400',
-          },
-        ],
+      // Create a Web3 instance
+      const web3 = new Web3(window.ethereum);
+
+      // Contract address and ABI
+      const contractAddress = '0x1E42a61f416A6aa14a20Efd32E454788021f8A10'; 
+      const contractAbi = myDMentorAbi;
+
+      // Create a contract instance
+      const contract = new web3.eth.Contract(contractAbi, contractAddress);
+
+      // Call sendToPool function
+      const txHash = await contract.methods.sendToPool('0xReceiverAddress').send({
+        from: acc[0],
+        value: web3.utils.toWei('0.015', 'ether'), // Replace with the desired value in ether
       });
 
       console.log(txHash);
