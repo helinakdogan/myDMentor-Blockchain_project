@@ -13,7 +13,8 @@ const NavBar = ({ currentAccount, connectWalletHandler }) => {
         }}
       >
         <header className="navbar-container">
-          <div className="navbar-logo">
+  <div className="navbar-logo">
+    {/* <img src="../../assets/logomyDMentor.PNG" /> */}
             <h1 className="logo">myDMentor</h1>
           </div>
           <div className="navbar-links">
@@ -30,7 +31,7 @@ const NavBar = ({ currentAccount, connectWalletHandler }) => {
           <div className="world-id">
             {currentAccount ? (
               <WorldIDWidget
-                actionId="wid_staging_1c829bf138a85d3b022f50708046befa" // obtain this from developer.worldcoin.org
+               actionId='app_staging_7e334f6a4857d86a5279457f8484ef90'
                 signal="tru_signal"
                 enableTelemetry
                 onSuccess={() => console.log("success")} // you'll actually want to pass the proof to the API or your smart contract

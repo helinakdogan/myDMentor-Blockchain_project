@@ -83,11 +83,61 @@ const MentorPage = ({ currentAccount }) => {
                 width: 300,
                 marginRight: "10px",
                 backgroundColor: "#4e3188",
+                borderRadius: "25px",
               }}
             >
               <div style={{ height: "50%", overflow: "hidden" }}>
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/800px-Juvenile_Ragdoll.jpg"
+                  src="https://www.peerthroughmedia.com/wp-content/uploads/2021/09/APE.png"
+                  alt="Mentor"
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+
+              <div>
+                <CardHeader
+                  title="Mentor X"
+                  style={{ color: "white" }}
+                ></CardHeader>
+              </div>
+              <CardContent>
+                <Typography
+                  variant="body1"
+                  className="progress-card-description"
+                  style={{ color: "white" }}
+                >
+                  Description
+                </Typography>
+                <Typography variant="body2" style={{ color: "white" }}>
+                  Number of mentees: 12
+                </Typography>
+                <Button
+                  variant="contained"
+                  onClick={handleDialogOpen}
+                  style={{
+                    marginLeft: "100px",
+                    marginTop: "10px",
+                    backgroundColor: "#49beb7",
+                  }}
+                >
+                  View
+                </Button>
+              </CardContent>
+            </Card>
+
+            <div style={{ margin: "10px" }}></div>
+
+            <Card
+              style={{
+                width: 300,
+                marginRight: "10px",
+                backgroundColor: "#4e3188",
+                borderRadius: "25px",
+              }}
+            >
+              <div style={{ height: "50%", overflow: "hidden" }}>
+                <img
+                  src="https://i.seadn.io/gcs/files/2866d3bbe71b43067f7d3ce564d08d3a.png?auto=format&dpr=1&w=3840://www.peerthroughmedia.com/wp-content/uploads/2021/09/APE.png"
                   alt="Mentor"
                   style={{ width: "100%", height: "auto" }}
                 />
@@ -125,17 +175,17 @@ const MentorPage = ({ currentAccount }) => {
             </Card>
 
             <div style={{ margin: "10px" }}></div>
-
             <Card
               style={{
                 width: 300,
                 marginRight: "10px",
                 backgroundColor: "#4e3188",
+                borderRadius: "25px",
               }}
             >
               <div style={{ height: "50%", overflow: "hidden" }}>
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/800px-Juvenile_Ragdoll.jpg"
+                  src="https://www.djkn.kemenkeu.go.id/files/images/2022/01/111.PNG"
                   alt="Mentor"
                   style={{ width: "100%", height: "auto" }}
                 />
@@ -143,54 +193,7 @@ const MentorPage = ({ currentAccount }) => {
 
               <div>
                 <CardHeader
-                  title="Mentor Y"
-                  style={{ color: "white" }}
-                ></CardHeader>
-              </div>
-              <CardContent>
-                <Typography
-                  variant="body1"
-                  className="progress-card-description"
-                  style={{ color: "white" }}
-                >
-                  Description
-                </Typography>
-                <Typography variant="body2" style={{ color: "white" }}>
-                  Number of mentees: 12
-                </Typography>
-                <Button
-                  variant="contained"
-                  onClick={handleDialogOpen}
-                  style={{
-                    marginLeft: "100px",
-                    marginTop: "10px",
-                    backgroundColor: "#49beb7",
-                  }}
-                >
-                  View
-                </Button>
-              </CardContent>
-            </Card>
-
-            <div style={{ margin: "10px" }}></div>
-            <Card
-              style={{
-                width: 300,
-                marginRight: "10px",
-                backgroundColor: "#4e3188",
-              }}
-            >
-              <div style={{ height: "50%", overflow: "hidden" }}>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/800px-Juvenile_Ragdoll.jpg"
-                  alt="Mentor"
-                  style={{ width: "100%", height: "auto" }}
-                />
-              </div>
-
-              <div>
-                <CardHeader
-                  title="Mentor Y"
+                  title="Mentor Z"
                   style={{ color: "white" }}
                 ></CardHeader>
               </div>
@@ -221,35 +224,17 @@ const MentorPage = ({ currentAccount }) => {
           </div>
         </div>
 
-        {gigVisible && (
-          <div className="gig-container">
-            <TextField type="text" placeholder="Title" />
-            <TextField type="text" placeholder="Description" />
-            <TextField
-              type="number"
-              placeholder="Price"
-              onChange={(e) => setPrice(e.target.value)}
-            />
-            <Button
-              type="submit"
-              className="gig"
-              style={{ float: "right" }}
-              onClick={() => stakeClientAmount(price)}
-            >
-              Submit
-            </Button>
-          </div>
-        )}
+        
       </Container>
 
       <Dialog open={openDialog} onClose={handleDialogClose}>
-  <DialogTitle>Mentor Details</DialogTitle>
+  <DialogTitle>Mentor X</DialogTitle>
   <DialogContent>
     
 
   <div style={{ height: '20%', overflow: 'hidden' }}>
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/800px-Juvenile_Ragdoll.jpg"
+        src="https://www.peerthroughmedia.com/wp-content/uploads/2021/09/APE.png"
         alt="Mentor"
         style={{ width: '100%', height: 'auto' }}
       />
@@ -266,10 +251,11 @@ const MentorPage = ({ currentAccount }) => {
     </Typography>
 
     {/* Add appointment options */}
-    <Button variant="outlined" style={{ marginRight: 10 }}>
-      Uploaded Video
+    <Button variant="outlined" style={{ width: '100%', marginRight: 10 }}>
+      Video Technical Analysis (x Eth)
     </Button>
-    <Button variant="outlined" style={{ marginRight: 10 }}>
+    <div style={{ margin: "2px" }}></div>
+    <Button variant="outlined" style={{ width: '100%', marginRight: 10 }}>
       Written Feedback
     </Button>
   </DialogContent>
