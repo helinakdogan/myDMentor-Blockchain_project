@@ -74,6 +74,25 @@
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "getPrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "publisher",
 				"type": "address"
 			},
@@ -108,8 +127,52 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_toSet",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_price",
+				"type": "uint256"
+			}
+		],
+		"name": "ownerSetPrice",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_toBeReceiver",
+				"type": "address"
+			}
+		],
+		"name": "sendToPool",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_price",
+				"type": "uint256"
+			}
+		],
+		"name": "setPrice",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -149,7 +212,7 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "_videohash",
+				"name": "_videoURI",
 				"type": "string"
 			},
 			{
@@ -164,21 +227,7 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_videohash",
-				"type": "string"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_publisher",
-				"type": "address"
-			}
-		],
-		"name": "verifyProof",
-		"outputs": [],
 		"stateMutability": "payable",
-		"type": "function"
+		"type": "receive"
 	}
 ]

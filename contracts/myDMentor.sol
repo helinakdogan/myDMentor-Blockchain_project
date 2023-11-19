@@ -3,15 +3,16 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract myDMentor is Ownable{
+contract myDMentor is Ownable {
 
     mapping(address => bool) private ifVerifiedUser;
-
+    
+    uint256 private requestNo = 1;
     mapping(address => mapping(address => uint256)) private requestId;
 
-    mapping(uint256 => bytes32) private requestHash;
-    mapping(uint256 => bool) requestVerified;
-    mapping(address => uint256) price;
+    mapping(uint256 => string) private requestURI;
+    mapping(address => uint256) private price;
+    mapping(address => uint256) private activeJobs;
 
     constructor(address initialOwner) Ownable(initialOwner) {
         ifVerifiedUser[initialOwner] = true;
@@ -29,21 +30,32 @@ contract myDMentor is Ownable{
         require(msg.sender == publisher || msg.sender == receiver || msg.sender == this.owner());
         return requestId[publisher][receiver];
     }
-
-    function verifyProof(string memory _videohash, address payable _publisher) external payable {
-        bytes32 _data = requestHash[requestId[_publisher][msg.sender]];
-        
-        require(keccak256(abi.encodePacked(_videohash)) == keccak256(abi.encodePacked(_data)),
-                "Given hash is not equal to onchain hash");
-        require(price[_publisher] <= msg.value, "Not enough Ether");
-        
-        (bool sent, bytes memory data) = _publisher.call{value: msg.value}("");
-        require(sent, "Ether transfer failed");
-        //maybe delete mapping data now?
+    
+    function getPrice(address _address) public view returns(uint256){
+        return price[_address];
+    }
+    function setPrice(uint256 _price) public {
+        price[msg.sender] = _price;
+    }
+    function ownerSetPrice(address _toSet, uint256 _price) public onlyOwner{
+        price[_toSet] = _price;
     }
 
-    function uploadHash(string memory _videohash, address _receiver) external{
-        requestHash[requestId[msg.sender][_receiver]] = keccak256(abi.encodePacked(_videohash));
+    function uploadHash(string memory _videoURI, address _receiver) external {
+        require(requestId[msg.sender][_receiver] != 0, "Job is not available");
+
+        requestURI[requestId[msg.sender][_receiver]] = _videoURI;
+        requestId[msg.sender][_receiver]--;
     }
+
+    function sendToPool(address _toBeReceiver) external payable {
+        require(ifVerifiedUser[_toBeReceiver] == true, "receiver not verified");
+        require(msg.value >= price[_toBeReceiver]);
+        requestId[_toBeReceiver][msg.sender] = requestNo;
+        requestNo++;
+        activeJobs[_toBeReceiver]++;
+    }
+
+    receive() external payable {}
 
 }
