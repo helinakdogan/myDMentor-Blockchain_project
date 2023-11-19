@@ -17,8 +17,8 @@ const MentorProfile = () => {
         params: [
           {
             from: acc[0],
-            to: '<recipient address>',
-            value: '<value in wei to send>',
+            to: '0x1E42a61f416A6aa14a20Efd32E454788021f8A10',
+            value: '15000000000000000',
             gasLimit: '0x5028',
             maxPriorityFeePerGas: '0x3b9aca00',
             maxFeePerGas: '0x2540be400',
